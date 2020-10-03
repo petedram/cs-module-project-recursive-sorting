@@ -30,4 +30,31 @@ def binary_search(arr, target, start, end):
 # or iteratively
 def agnostic_binary_search(arr, target):
     # Your code here
-    pass
+    from sorting import merge_sort
+    maximum = 7
+    elements = maximum + 1 #need to find the max value + 1
+    assign = [0] * elements #new array of zeros
+    print(f'assign first: {assign}')
+
+
+    #what index is each num in array
+    i = 0
+    while i < len(assign): #redo this...
+        print(f'put value of array = {arr[i]} into index of assign = {i}')
+        assign.insert(i, arr[i])
+        i+=1
+    
+    print(f'assign second: {assign}')
+
+
+    sorted = merge_sort(arr)
+    print(sorted)
+
+    start = 0
+    end = len(sorted)-1
+    new_index = binary_search(sorted, target, start, end)
+
+    return new_index
+
+
+print(agnostic_binary_search([1, 7, 5, 4, 0], 5))
